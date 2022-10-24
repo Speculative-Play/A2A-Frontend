@@ -43,15 +43,6 @@ function GetMatchPage(props) {
             <h3 style={{ paddingTop: 24, paddingRight: 70 }}>Match</h3>
           </Link>
           <Link
-            to={""}
-            style={{
-              textDecoration: "none",
-              color: AuntiesAlgosColorPalette.heading,
-            }}
-          >
-            <h3 style={{ paddingTop: 24, paddingRight: 70 }}>Preferences</h3>
-          </Link>
-          <Link
             to={"/"}
             style={{
               textDecoration: "none",
@@ -146,12 +137,12 @@ function GetMatchPage(props) {
         </div>
         <Grid container spacing={4}>
           <Grid item xs={12} sm={8}>
-            <ListContainerStyle style={{borderColor: "red"}}>
+            <ListContainerStyle style={{ borderColor: "red" }}>
               <MinimalPieChart
                 lineWidth={45}
-                paddingAngle={10}
+                paddingAngle={5}
                 data={catValues}
-                segmentsStyle={{borderColor: "#F77B44", borderWidth: 100}}
+                segmentsStyle={{ borderColor: "#F77B44", borderWidth: 100 }}
                 label={(labelRenderProps) => labelRenderProps.dataEntry.name}
                 labelPosition={120}
                 labelStyle={{ fontSize: 2, flexDirection: "column" }}

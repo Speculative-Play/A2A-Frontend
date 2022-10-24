@@ -45,15 +45,6 @@ function ProfilePage(props) {
             <h3 style={{ paddingTop: 24, paddingRight: 70 }}>Match</h3>
           </Link>
           <Link
-            to={""}
-            style={{
-              textDecoration: "none",
-              color: AuntiesAlgosColorPalette.heading,
-            }}
-          >
-            <h3 style={{ paddingTop: 24, paddingRight: 70 }}>Preferences</h3>
-          </Link>
-          <Link
             to={"/"}
             style={{
               textDecoration: "none",
