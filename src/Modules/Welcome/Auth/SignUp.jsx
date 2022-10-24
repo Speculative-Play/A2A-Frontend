@@ -1,9 +1,9 @@
 //Packages
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Button, TextField, MenuItem, Select, Grid } from "@material-ui/core";
 import ScreenContainer from "../../../Components/ScreenContainer";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Categories from "../../../Components/AuntiesAlgosCategories";
 import AuntiesAlgosColorPalette from "../../../Components/AuntiesAlgosColorPalette";
 
@@ -335,21 +335,29 @@ function SignUp(props) {
                 <h2 style={{ textAlign: "center", marginBottom: 50 }}>
                   Upload Photo to Get Better Matches
                 </h2>
-                <button style={{padding: 0, borderRadius: 250, marginBottom: 50, border: "red thick solid", opacity: 0.5, display: "flex"}}>
-                <img
+                <button
                   style={{
-                    width: 350,
-                    height: 350,
+                    padding: 0,
                     borderRadius: 250,
-                    border: "",
-                    opacity: 0.5,
+                    marginBottom: 50,
+                    border: "transparent",
+                    display: "flex",
                   }}
-                  src={
-                    form.gender === "male"
-                      ? "/images/sample_user_man.webp"
-                      : "/images/sample_user_female.jpeg"
-                  }
-                />
+                  onClick={{}}
+                >
+                  <img
+                    style={{
+                      width: 350,
+                      height: 350,
+                      borderRadius: 250,
+                      border: "",
+                    }}
+                    src={
+                      form.gender === "male"
+                        ? "/images/Signup_Male_image.png"
+                        : "/images/Signup_Female_image.png"
+                    }
+                  />
                 </button>
                 <StyledButton onClick={() => setStep(4)}>Skip</StyledButton>
               </div>
