@@ -1,6 +1,6 @@
 //Packages
 import styled from "styled-components";
-import Lottie from "react-lottie";
+import {useLottie} from "lottie-react";
 
 
 //Source Code
@@ -8,28 +8,23 @@ import Title from "../../../Components/Title";
 import * as JSONanimation from "../../../assets/compile.json";
 
 function OnboardingAddParents() {
+  const Animation = () => {
+    const animationOptions = {
+      animationData: JSONanimation,
+      loop: true,
+      autoplay: true,
+      style: { height: 500, width: 500 },
+    };
+    const { View } = useLottie(animationOptions);
+    return <>{View}</>;
+  };
   return (
     <>
       <Title>
         {" "}
         Ask your parents to help you find a match if you want! :D{" "}
       </Title>
-      <GreyBg>
-        <CenteredDiv>
-        <Lottie
-            options={{
-              loop: true,
-              autoplay: true,
-              animationData: JSONanimation,
-              renderer: "svg",
-            }}
-            isClickToPauseDisabled={true}
-            height={320}
-            width={320}
-            style={{ borderRadius: 10}}
-          />
-        </CenteredDiv>
-      </GreyBg>
+      <Animation />
 
       <CenteredDiv>
        <p>You can add a parents account to your profile so they can play with the pie chart </p>
@@ -50,10 +45,4 @@ const CenteredDiv = styled.div`
   color: #000000;
   padding-top: 1px;
   flex-wrap: wrap;
-`;
-
-const GreyBg = styled.div`
-  background-color: #FFFFFF;
-  padding: 1vh 1vw;
-  border-radius: 10px;
 `;
