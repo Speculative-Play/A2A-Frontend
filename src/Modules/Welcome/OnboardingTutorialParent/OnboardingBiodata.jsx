@@ -1,8 +1,11 @@
 //Packages
 import styled from "styled-components";
+import Lottie from "react-lottie";
 
 //Source Code
 import Title from "../../../Components/Title";
+import * as JSONanimation from "../../../assets/glid.json";
+
 function OnboardingBiodata() {
   return (
     <>
@@ -12,10 +15,18 @@ function OnboardingBiodata() {
       </Title>
       <GreyBg>
         <CenteredDiv>
-          <p style={{ paddingTop: "30px" }}>
-            Autotype text animation in Biodata page converts to different
-            categories
-          </p>
+          <Lottie
+            options={{
+              loop: true,
+              autoplay: true,
+              animationData: JSONanimation,
+              renderer: "svg",
+            }}
+            isClickToPauseDisabled={true}
+            height={320}
+            width={320}
+            style={{ borderRadius: 10 }}
+          />
         </CenteredDiv>
       </GreyBg>
 
@@ -41,8 +52,7 @@ const CenteredDiv = styled.div`
 `;
 
 const GreyBg = styled.div`
-  background-color: #f5eaea;
+  background-color: #FFFFFF;
   padding: 1vh 1vw;
   border-radius: 10px;
-  height: 100px;
 `;

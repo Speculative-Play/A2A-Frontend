@@ -46,7 +46,7 @@ function ChildOnboarding() {
               )
             }
           >
-            {onboardingProgress === 100 ? "Signup" : "Next"}
+            {onboardingProgress === 100 ? "SIGNUP" : "Next"}
           </PinkButton>
       </WhiteBG>
     </ScreenContainer>

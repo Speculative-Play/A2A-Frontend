@@ -1,16 +1,30 @@
 //Packages
 import styled from "styled-components";
+import Lottie from "react-lottie";
 
 //Source Code
 import Title from "../../../Components/Title";
+import * as JSONanimation from "../../../assets/bake.json";
+
+
 function OnboardingPieChart() {
   return (
     <>
       <Title> Combine a bunch of matching methods together </Title>
       <GreyBg>
         <CenteredDiv>
-          <p>Drags the piechart segments and the matches' </p>
-          <p>rankings change on the side.</p>
+        <Lottie
+            options={{
+              loop: true,
+              autoplay: true,
+              animationData: JSONanimation,
+              renderer: "svg",
+            }}
+            isClickToPauseDisabled={true}
+            height={320}
+            width={320}
+            style={{ borderRadius: 10}}
+          />
         </CenteredDiv>
       </GreyBg>
 
@@ -29,8 +43,6 @@ function OnboardingPieChart() {
 export default OnboardingPieChart;
 
 //Styled Components
-
-
 const CenteredDiv = styled.div`
   font-size: 14px;
   text-align: center;
@@ -42,7 +54,7 @@ const CenteredDiv = styled.div`
 `;
 
 const GreyBg = styled.div`
-  background-color: #f5eaea;
+  background-color: #FFFFFF;
   padding: 1vh 1vw;
   border-radius: 10px;
 `;

@@ -1,31 +1,35 @@
 //Packages
 import styled from "styled-components";
+import Lottie from "react-lottie";
 
 //Source Code
 import Title from "../../../Components/Title";
-
+import * as JSONanimation from "../../../assets/glid.json";
 
 function OnboardingMatchProfiles() {
   return (
     <>
-      <Title>
-        {" "}
-        See your match profiles and chat with them!{" "}
-      </Title>
+      <Title> See your match profiles and chat with them! </Title>
       <GreyBg>
         <CenteredDiv>
-          <p>Clicks on a profile from the list</p>
-          <p>Texting each other in the chat box and sending heart emojies</p>
+          <Lottie
+            options={{
+              loop: true,
+              autoplay: true,
+              animationData: JSONanimation,
+              renderer: "svg",
+            }}
+            isClickToPauseDisabled={true}
+            height={320}
+            width={320}
+            style={{ borderRadius: 10 }}
+          />
         </CenteredDiv>
       </GreyBg>
 
       <CenteredDiv>
-        <p>
-          Once you checked your potential matches profile you{" "}
-        </p>
-        <p>
-          can chat with them and know more about each other!{" "}
-        </p>
+        <p>Once you checked your potential matches profile you </p>
+        <p>can chat with them and know more about each other! </p>
       </CenteredDiv>
     </>
   );
@@ -46,7 +50,7 @@ const CenteredDiv = styled.div`
 `;
 
 const GreyBg = styled.div`
-  background-color: #f5eaea;
+  background-color: #ffffff;
   padding: 1vh 1vw;
   border-radius: 10px;
 `;
