@@ -1,4 +1,4 @@
-// Dependencies 
+// Dependencies
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -17,16 +17,30 @@ export function LogoAndName(props) {
         style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
       >
         <AppLogo />
-        <AuntiesAlgorithms>Aunties + Algorithms</AuntiesAlgorithms>
+        <AuntiesHeadingStyle>AUNTIES</AuntiesHeadingStyle>
+        <AlgosHeadingStyle>+ALGORITHMS</AlgosHeadingStyle>
       </div>
     </Link>
   );
 }
 
-const AuntiesAlgorithms = styled.h1`
+const AuntiesHeadingStyle = styled.h1`
+  font-style: normal;
+  font-weight: 300;
   font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 1px;
+  text-align: left;
+  font-family: "Fira Sans Light"
+  color: ${AuntiesAlgosColorPalette.title};
+`;
+const AlgosHeadingStyle = styled.h1`
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: 24px;
   text-align: left;
   font-family: "Fira Sans", sans-serif;
-  font-style: light;
   color: ${AuntiesAlgosColorPalette.title};
 `;
