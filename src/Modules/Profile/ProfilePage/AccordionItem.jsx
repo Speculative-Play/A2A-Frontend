@@ -18,16 +18,7 @@ import QuestionComponent from "./QuestionComponent";
 
 //Component
 function AccordionItem(props) {
-  const [progress, setProgress] = useState(20);
-  const [isEdit, setIsEdit] = useState(false);
 
-  const handleSaveChanges = () => {
-    setIsEdit(false);
-  };
-
-  const handleCancelChanges = () => {
-    setIsEdit(false);
-  };
 
   return (
     <StyledAccordion>
@@ -35,10 +26,8 @@ function AccordionItem(props) {
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <AccordionHeaderContainer>
+        <AccordionHeader>
           <h3 style={{ textAlign: "center" }}>{props.heading}</h3>
-          {/* <div style={{width: "100%", fontFamily: "Fira Sans"}}>
-                    </div> */}
           <ProgressContainer>
             <CircularProgressbarWithChildren
               value={props.progressPercentage}
@@ -52,81 +41,18 @@ function AccordionItem(props) {
               <RadialSeparators
                 count={12}
                 style={{
-                  background: "#fff",
+                  background: "white",
                   width: "1px",
-                  // This needs to be equal to props.strokeWidth
                   height: `${10}%`,
                 }}
               />
             </CircularProgressbarWithChildren>
           </ProgressContainer>
-        </AccordionHeaderContainer>
+        </AccordionHeader>
         <AccordinonInfo style={{ fontFamily: "Fira Sans" }}>
           {props.description}
         </AccordinonInfo>
       </StyledAccordionSummary>
-      <StyledAccordionDetails>
-        {!isEdit ? (
-          <div>
-            <HeightMargin>
-              <InnerDetailPadding>
-                <div className="text-right">
-                  <EditButton onClick={() => setIsEdit(true)}>Edit</EditButton>
-                </div>
-                <FlexContainer>
-                  <QuestionComponent readOnly />
-                  <QuestionComponent readOnly />
-                  <QuestionComponent readOnly />
-                </FlexContainer>
-              </InnerDetailPadding>
-            </HeightMargin>
-          </div>
-        ) : (
-          <div>
-            <HeightMargin>
-              <div>
-                <TempMarginTop>
-                  <InnerDetailPadding>
-                    <FlexContainer>
-                      <QuestionComponent shortQuestion={true} />
-                      <QuestionComponent shortQuestion={true} />
-                      <QuestionComponent longQuestion={true} />
-                      <QuestionComponent longQuestion={true} />
-                    </FlexContainer>
-
-                    <ChangeButtonsDiv>
-                      <ChangeButton
-                        bgColor="pink"
-                        onClick={() => handleSaveChanges()}
-                      >
-                        Save
-                      </ChangeButton>
-                      <ChangeButton
-                        bgColor="white"
-                        onClick={() => handleCancelChanges()}
-                      >
-                        Cancel
-                      </ChangeButton>
-                    </ChangeButtonsDiv>
-                  </InnerDetailPadding>
-                </TempMarginTop>
-              </div>
-              <div>
-                <TempMarginTop>
-                  <InnerDetailPadding>
-                    <FlexContainer>
-                      <QuestionComponent notAdded={true} />
-                      <QuestionComponent notAdded={true} />
-                      <QuestionComponent notAdded={true} />
-                      <QuestionComponent notAdded={true} />
-                    </FlexContainer>
-                  </InnerDetailPadding>
-                </TempMarginTop>
-              </div>
-            </HeightMargin>
-          </div>
-        )}
-      </StyledAccordionDetails>
     </StyledAccordion>
   );
 }
@@ -152,18 +78,13 @@ const StyledAccordionSummary = styled(AccordionSummary)`
     display: block;
   }
 `;
-const AccordionHeaderContainer = styled.div`
+const AccordionHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   div:first-child {
     flex-grow: 3;
     align-items: center;
-  }
-`;
-const StyledAccordionDetails = styled(AccordionDetails)`
-  &.MuiAccordionDetails-root {
-    display: block;
   }
 `;
 const AccordinonInfo = styled.p`
@@ -174,46 +95,6 @@ const AccordinonInfo = styled.p`
 const ProgressContainer = styled.div`
   width: 45px;
   height: 45px;
-`;
-const InnerDetailPadding = styled.div`
-  padding: 0 3vw;
-`;
-const FlexContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-`;
-const TempMarginTop = styled.div`
-  margin-top: 3rem;
-`;
-const EditButton = styled(Button)`
-  &:not(#ed #ac) {
-    background: #2684ff;
-    border-radius: 10px;
-    color: #ffffff;
-  }
-`;
-const ChangeButton = styled(Button)`
-  &:not(#ed #ac) {
-    min-width: 13vw;
-    background: #2684ff;
-    border-radius: 10px;
-    color: ${(props) => (props.bgColor === "pink" ? "#FFFFFF" : "#F08599")};
-    background-color: ${(props) =>
-      props.bgColor === "pink" ? "#F08599" : "#FFFFFF"};
-    border: ${(props) => (props.bgColor === "pink" ? "" : "2px solid #F08599")};
-  }
-`;
-const HeightMargin = styled.div`
-  margin-top: 1vh;
-  margin-bottom: 6vh;
-`;
-const ChangeButtonsDiv = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: flex-end;
-  margin-top: 1rem;
 `;
 
 export default AccordionItem;

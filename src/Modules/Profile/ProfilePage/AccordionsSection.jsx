@@ -15,7 +15,7 @@ function AccordionsSection(props) {
           <AccordionItem
             heading={category.Title}
             description={category.Description}
-            progressPercentage={category.Percentage}
+            progressPercentage={0}
             progressColor={category.Color}
           />
         );
@@ -26,8 +26,4 @@ function AccordionsSection(props) {
 }
 
 //Styling
-const TempoPadding = styled.div`
-  padding: 10vh 20vw;
-`;
-
 export default AccordionsSection;

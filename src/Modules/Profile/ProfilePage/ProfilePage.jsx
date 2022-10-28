@@ -1,92 +1,36 @@
 //Packages
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 //Source Code
 import AccordionsSection from "./AccordionsSection";
 import PersonalInfo from "./PersonalInfo";
 import AuntiesAlgosColorPalette from "../../../Components/AuntiesAlgosColorPalette";
-import { LogoAndName } from "../../../Components/LogoAndName";
+import { HeaderBar } from "../../../Components/HeaderBar";
 
-//Component
-function ProfilePage(props) {
-  
-  
-  function HeaderBar(props) {
-    
-    function HeaderLinks(props) {
-      return (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            fontFamily: "Fira Sans",
-            fontSize: 14,
-            // paddingLeft: "22vw",
-          }}
-        >
-          <Link
-            to={""}
-            style={{
-              textDecoration: "none",
-              color: AuntiesAlgosColorPalette.heading,
-            }}
-          >
-            <h3 style={{ paddingTop: 24, paddingRight: 70 }}>Parents</h3>
-          </Link>
-          <Link
-            to={"/get-match"}
-            style={{
-              textDecoration: "none",
-              color: AuntiesAlgosColorPalette.heading,
-            }}
-          >
-            <h3 style={{ paddingTop: 24, paddingRight: 70 }}>Match</h3>
-          </Link>
-          <Link
-            to={"/"}
-            style={{
-              textDecoration: "none",
-              color: AuntiesAlgosColorPalette.heading,
-            }}
-          >
-            <h3 style={{ paddingTop: 24, paddingRight: 70 }}>Logout</h3>
-          </Link>
-        </div>
-      );
-    }
-    
-    return (
-      <div
-        style={{
-          backgroundColor: AuntiesAlgosColorPalette.background,
-          paddingLeft: "5vw",
-          paddingBottom: "10vh",
-          paddingTop: "5vh",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between"
-        }}
-      >
-        <LogoAndName link={""}/>
-        <HeaderLinks />
-      </div>
-    );
-  }
+const ProfilePage = (props) => {
+  const links = [
+    { linkName: "Parents", link: "/parent-stars" },
+    { linkName: "Matches", link: "/get-match" },
+    { linkName: "Logout", link: "/" },
+  ];
+
+  const [edit, setEdit] = useState(false);
+
 
   return (
     <div>
-      <HeaderBar />
+      <HeaderBar links={links} />
       <ScreenBackground>
         <div className="card-border bg-white" style={{ marginBottom: "5%" }}>
-          <PersonalInfo />
+          <PersonalInfo editCallback={setEdit}/>
         </div>
-        <AccordionsSection />
+        {!edit && 
+        <AccordionsSection /> }
       </ScreenBackground>
     </div>
   );
-}
+};
 
 //Styling
 const ScreenBackground = styled.div`
