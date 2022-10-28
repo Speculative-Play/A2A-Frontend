@@ -1,7 +1,7 @@
 const AuntiesAlgosColorPalette = {
     transparent: "#00000000",
     background: "#E5E5E5",
-    logoColor: "#E8A3B0",
+    logoColor: "#E34F76",
     title: "#E8A3B0",
     heading: "#3D3D3D",
     bodyText: "#3D3D3D",
