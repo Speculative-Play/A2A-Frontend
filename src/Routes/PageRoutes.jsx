@@ -12,6 +12,7 @@ import ChildOnboarding from "../Modules/Welcome/OnboardingTutorialChild/ChildOnb
 import ParentOnboarding from "../Modules/Welcome/OnboardingTutorialParent/ParentOnboarding";
 import SearchChild from "../Modules/Welcome/Auth/SearchChild";
 import ProfileNotFound from "../Modules/Welcome/Auth/ProfileNotFound";
+import ParentRecommendations from "../Modules/Parents/ParentsStarred";
 
 //Component
 function PageRoutes(props){
@@ -27,6 +28,7 @@ function PageRoutes(props){
           <Route path='/onboarding-parent' exact element={<ParentOnboarding />} />
           <Route path='/search-child' exact element={<SearchChild />} />
           <Route path='/profile-not-found' exact element={<ProfileNotFound />}/>
+          <Route path='/parent-stars' exact element={<ParentRecommendations />}/>
         </Routes>
       </Router>
     </div>
