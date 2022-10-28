@@ -1,6 +1,5 @@
 //Packages
 import styled from "styled-components";
-import { useLottie } from "lottie-react";
 
 //Source Code
 import Title from "../../../Components/Title";

@@ -3,7 +3,6 @@ import { Button, Box } from "@material-ui/core";
 import React from "react";
 
 import { Link } from "react-router-dom";
-import { useLottie } from "lottie-react";
 
 //Source code
 import ScreenContainer from "../../../Components/ScreenContainer";
