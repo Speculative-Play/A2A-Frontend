@@ -1,40 +1,30 @@
 //Packages
 import styled from "styled-components";
-import Lottie from "react-lottie";
+import { useLottie } from "lottie-react";
 
 //Source Code
 import Title from "../../../Components/Title";
 import * as JSONanimation from "../../../assets/bake.json";
 
-
 function OnboardingPieChart() {
+  const Animation = () => {
+    const animationOptions = {
+      animationData: JSONanimation,
+      loop: true,
+      autoplay: true,
+      style: { height: 500, width: 500 },
+    };
+    const { View } = useLottie(animationOptions);
+    return <>{View}</>;
+  };
   return (
     <>
       <Title> Combine a bunch of matching methods together </Title>
-      <GreyBg>
-        <CenteredDiv>
-        <Lottie
-            options={{
-              loop: true,
-              autoplay: true,
-              animationData: JSONanimation,
-              renderer: "svg",
-            }}
-            isClickToPauseDisabled={true}
-            height={320}
-            width={320}
-            style={{ borderRadius: 10}}
-          />
-        </CenteredDiv>
-      </GreyBg>
+      <Animation />
 
       <CenteredDiv>
-        <p>
-          Play with a piechart to explore and prioritise different {" "}
-        </p>
-        <p>
-          categories and find out who pops up in your list!{" "}
-        </p>
+        <p>Play with a piechart to explore and prioritise different </p>
+        <p>categories and find out who pops up in your list! </p>
       </CenteredDiv>
     </>
   );
@@ -53,8 +43,3 @@ const CenteredDiv = styled.div`
   flex-wrap: wrap;
 `;
 
-const GreyBg = styled.div`
-  background-color: #FFFFFF;
-  padding: 1vh 1vw;
-  border-radius: 10px;
-`;

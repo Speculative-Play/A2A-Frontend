@@ -1,31 +1,26 @@
 //Packages
 import styled from "styled-components";
-import Lottie from "react-lottie";
+import { useLottie } from "lottie-react";
 
 //Source Code
 import Title from "../../../Components/Title";
 import * as JSONanimation from "../../../assets/run.json";
 
 function OnboardingQuestions() {
+  const Animation = () => {
+    const animationOptions = {
+      animationData: JSONanimation,
+      loop: true,
+      autoplay: true,
+      style: { height: 500, width: 500 },
+    };
+    const { View } = useLottie(animationOptions);
+    return <>{View}</>;
+  };
   return (
     <>
       <Title> Find compatible matches without reveleaing all your info. </Title>
-      <GreyBg>
-        <CenteredDiv>
-          <Lottie
-            options={{
-              loop: true,
-              autoplay: true,
-              animationData: JSONanimation,
-              renderer: "svg",
-            }}
-            isClickToPauseDisabled={true}
-            height={320}
-            width={320}
-            style={{ borderRadius: 10}}
-          />
-        </CenteredDiv>
-      </GreyBg>
+      <Animation />
 
       <CenteredDiv>
         <p>
@@ -51,10 +46,4 @@ const CenteredDiv = styled.div`
   color: #000000;
   padding-top: 1px;
   flex-wrap: wrap;
-`;
-
-const GreyBg = styled.div`
-  background-color: #FFFFFF;
-  padding: 1vh 1vw;
-  border-radius: 10px;
 `;
