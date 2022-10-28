@@ -2,7 +2,6 @@
 import React from "react";
 import styled from "styled-components";
 //Assets
-import Logo from "../assets/Logo512.png";
 import AuntiesAlgosColorPalette from "./AuntiesAlgosColorPalette";
 import { LogoAndName } from "./LogoAndName";
 
