@@ -1,29 +1,20 @@
 //Packages
 import styled from "styled-components";
-import { useLottie } from "lottie-react";
 
 //Source Code
 import Title from "../../../Components/Title";
 import * as JSONanimation from "../../../assets/glid.json";
+import Animation from "../../../Components/Animation";
 
 function OnboardingBiodata() {
-  const Animation = () => {
-    const animationOptions = {
-      animationData: JSONanimation,
-      loop: true,
-      autoplay: true,
-      style: { height: 500, width: 500 },
-    };
-    const { View } = useLottie(animationOptions);
-    return <>{View}</>;
-  };
+
   return (
     <>
       <Title style={{ paddingBottom: "30px" }}>
         {" "}
         We offer a new approach for helping your child find a life partner
       </Title>
-      <Animation />
+    <Animation animationFile={JSONanimation} />
 
       <CenteredDiv>
         <p>Your child has already filled out their information and </p>

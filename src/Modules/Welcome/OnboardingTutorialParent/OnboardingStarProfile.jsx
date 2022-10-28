@@ -1,26 +1,17 @@
 //Packages
 import styled from "styled-components";
-import {useLottie} from "lottie-react";
+import { useLottie } from "lottie-react";
 
 //Source Code
 import Title from "../../../Components/Title";
 import * as JSONanimation from "../../../assets/run.json";
+import Animation from "../../../Components/Animation";
 
 function OnboardingStarProfile() {
-  const Animation = () => {
-    const animationOptions = {
-      animationData: JSONanimation,
-      loop: true,
-      autoplay: true,
-      style: { height: 500, width: 500 },
-    };
-    const { View } = useLottie(animationOptions);
-    return <>{View}</>;
-  };
   return (
     <>
       <Title> Star the good matches </Title>
-      <Animation />
+      <Animation animationFile={JSONanimation} />
 
       <CenteredDiv>
         <p>
@@ -45,4 +36,3 @@ const CenteredDiv = styled.div`
   padding-top: 1px;
   flex-wrap: wrap;
 `;
-

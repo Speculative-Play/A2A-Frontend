@@ -5,22 +5,13 @@ import { useLottie } from "lottie-react";
 //Source Code
 import Title from "../../../Components/Title";
 import * as JSONanimation from "../../../assets/run.json";
+import Animation from "../../../Components/Animation";
 
 function OnboardingQuestions() {
-  const Animation = () => {
-    const animationOptions = {
-      animationData: JSONanimation,
-      loop: true,
-      autoplay: true,
-      style: { height: 500, width: 500 },
-    };
-    const { View } = useLottie(animationOptions);
-    return <>{View}</>;
-  };
   return (
     <>
       <Title> Find compatible matches without reveleaing all your info. </Title>
-      <Animation />
+      <Animation animationFile={JSONanimation} />
 
       <CenteredDiv>
         <p>

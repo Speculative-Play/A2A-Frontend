@@ -3,6 +3,7 @@ import { Button, Box } from "@material-ui/core";
 import React from "react";
 
 import { Link } from "react-router-dom";
+import { useLottie } from "lottie-react";
 
 //Source code
 import ScreenContainer from "../../../Components/ScreenContainer";
@@ -11,12 +12,14 @@ import CenteredDiv from "../../../Components/CenteredDiv";
 import CenteredP from "../../../Components/CenteredP";
 import Heading from "../../../Components/Heading";
 import AuntiesAlgosColorPalette from "../../../Components/AuntiesAlgosColorPalette";
+import * as JSONanimation from "../../../assets/compile.json";
+import Animation from "../../../Components/Animation";
 
 //Component
 export default function LandingPage(props) {
   return (
     <ScreenContainer>
-      <Title>First Page Animation/GIF Message</Title>
+      <Animation animationFile={JSONanimation} />
 
       <CenteredDiv>
         <p>Pie Chart: Giving weighted preference to different blocks.</p>

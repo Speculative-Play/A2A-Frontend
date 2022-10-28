@@ -5,25 +5,16 @@ import { useLottie } from "lottie-react";
 //Source code
 import Title from "../../../Components/Title";
 import * as JSONanimation from "../../../assets/bake.json";
+import Animation from "../../../Components/Animation";
 
 function OnboardingParentPieChart() {
-  const Animation = () => {
-    const animationOptions = {
-      animationData: JSONanimation,
-      loop: true,
-      autoplay: true,
-      style: { height: 500, width: 500 },
-    };
-    const { View } = useLottie(animationOptions);
-    return <>{View}</>;
-  };
   return (
     <>
       <Title style={{ paddingBottom: "30px" }}>
         {" "}
         Prioritise the things that are the most important.{" "}
       </Title>
-      <Animation />
+      <Animation animationFile={JSONanimation} />
 
       <CenteredDiv>
         <p>
