@@ -80,7 +80,7 @@ export default function LandingPage(props) {
 
       <CenteredP>
         Already have an account?{" "}
-        <Link to="/auth" style={{ textDecoration: "none" }}>
+        <Link to="/auth" style={{ textDecoration: "none", paddingBottom:50 }}>
           Log In
         </Link>{" "}
       </CenteredP>
