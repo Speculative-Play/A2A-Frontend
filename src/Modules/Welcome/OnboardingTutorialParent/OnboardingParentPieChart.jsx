@@ -1,8 +1,10 @@
 //Packages
 import styled from "styled-components";
+import Lottie from "react-lottie";
 
 //Source code
 import Title from "../../../Components/Title";
+import * as JSONanimation from "../../../assets/bake.json";
 
 function OnboardingParentPieChart() {
   return (
@@ -13,8 +15,18 @@ function OnboardingParentPieChart() {
       </Title>
       <GreyBg>
         <CenteredDiv>
-          <p>Drags the piechart segments and the matches' </p>
-          <p>rankings change on the side.</p>
+          <Lottie
+            options={{
+              loop: true,
+              autoplay: true,
+              animationData: JSONanimation,
+              renderer: "svg",
+            }}
+            isClickToPauseDisabled={true}
+            height={320}
+            width={320}
+            style={{ borderRadius: 10 }}
+          />
         </CenteredDiv>
       </GreyBg>
 
@@ -43,7 +55,7 @@ const CenteredDiv = styled.div`
 `;
 
 const GreyBg = styled.div`
-  background-color: #f5eaea;
+  background-color: #ffffff;
   padding: 1vh 1vw;
   border-radius: 10px;
 `;

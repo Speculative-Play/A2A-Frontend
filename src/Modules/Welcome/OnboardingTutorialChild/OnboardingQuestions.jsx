@@ -1,20 +1,29 @@
 //Packages
 import styled from "styled-components";
+import Lottie from "react-lottie";
 
 //Source Code
 import Title from "../../../Components/Title";
+import * as JSONanimation from "../../../assets/run.json";
 
 function OnboardingQuestions() {
   return (
     <>
-      <Title>
-        {" "}
-        Find compatible matches without reveleaing all your info.{" "}
-      </Title>
+      <Title> Find compatible matches without reveleaing all your info. </Title>
       <GreyBg>
         <CenteredDiv>
-          <p>Choose answers from multiple choice questions.</p>
-          <p>Determines visible/Invisible</p>
+          <Lottie
+            options={{
+              loop: true,
+              autoplay: true,
+              animationData: JSONanimation,
+              renderer: "svg",
+            }}
+            isClickToPauseDisabled={true}
+            height={320}
+            width={320}
+            style={{ borderRadius: 10}}
+          />
         </CenteredDiv>
       </GreyBg>
 
@@ -45,7 +54,7 @@ const CenteredDiv = styled.div`
 `;
 
 const GreyBg = styled.div`
-  background-color: #f5eaea;
+  background-color: #FFFFFF;
   padding: 1vh 1vw;
   border-radius: 10px;
 `;
