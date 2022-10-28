@@ -1,7 +1,7 @@
 //Packages
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Button, Grid, FormGroup } from "@material-ui/core";
+import { Button, Grid, FormGroup, Slider } from "@material-ui/core";
 // import { PieChart, Pie, Cell } from "recharts";
 import { PieChart as MinimalPieChart } from "react-minimal-pie-chart";
 import { Link } from "react-router-dom";
@@ -11,67 +11,14 @@ import ListOfMatches from "./ListOfMatches";
 import { LogoAndName } from "../../../Components/LogoAndName";
 // import ScreenContainer from "../../../Components/ScreenContainer";
 import AuntiesAlgosColorPalette from "../../../Components/AuntiesAlgosColorPalette";
+import { HeaderBar } from "../../../Components/HeaderBar";
 //Component
 function GetMatchPage(props) {
-  function HeaderBar(props) {
-    function HeaderLinks(props) {
-      return (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            fontFamily: "Fira Sans",
-            fontSize: 14,
-          }}
-        >
-          <Link
-            to={""}
-            style={{
-              textDecoration: "none",
-              color: AuntiesAlgosColorPalette.heading,
-            }}
-          >
-            <h3 style={{ paddingTop: 24, paddingRight: 70 }}>Parents</h3>
-          </Link>
-          <Link
-            to={"/get-match"}
-            style={{
-              textDecoration: "none",
-              color: AuntiesAlgosColorPalette.heading,
-            }}
-          >
-            <h3 style={{ paddingTop: 24, paddingRight: 70 }}>Match</h3>
-          </Link>
-          <Link
-            to={"/"}
-            style={{
-              textDecoration: "none",
-              color: AuntiesAlgosColorPalette.heading,
-            }}
-          >
-            <h3 style={{ paddingTop: 24, paddingRight: 70 }}>Logout</h3>
-          </Link>
-        </div>
-      );
-    }
-
-    return (
-      <div
-        style={{
-          backgroundColor: AuntiesAlgosColorPalette.background,
-          paddingLeft: "5vw",
-          paddingBottom: "10vh",
-          paddingTop: "5vh",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-        }}
-      >
-        <LogoAndName link={""} />
-        <HeaderLinks />
-      </div>
-    );
-  }
+  const links = [
+    { linkName: "Parents", link: "/parent-stars" },
+    { linkName: "Matches", link: "/get-match", current: true },
+    { linkName: "Logout", link: "/" },
+  ];
 
   const [catValues, setCatValues] = useState([
     {
@@ -117,8 +64,16 @@ function GetMatchPage(props) {
       color: "#00C7E6",
     },
   ]);
+  const [threshold, setThreshold] = useState(72);
 
-  const valueUpdateHandler = (id, diff) => {
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
+  function valueUpdateHandler(id, diff) {
     const newVal = [...catValues];
     let next = 1;
     newVal[id].value = catValues[id].value + diff;
@@ -126,22 +81,64 @@ function GetMatchPage(props) {
     newVal[(id + 1) % 6].value = catValues[(id + 1) % 6].value - diff;
     setCatValues(newVal);
     console.log(catValues);
-  };
+  }
 
+  function ActivateToggle(id) {
+    const newVal = [...catValues];
+    for (var i = 0; i < catValues.length; i++) {
+      if (newVal[i].id === id) {
+        newVal[i].active = !newVal[i].active;
+        setCatValues(newVal);
+        return true;
+      }
+    }
+  }
+
+  const CategoryButtonsPC = (props) => {
+    return (
+      <Button
+        style={{
+          borderStyle: "solid",
+          borderRadius: 10,
+          backgroundColor: props.active ? props.color : "#D9D9D9",
+          borderColor: props.color,
+          width: 200,
+          height: 50,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+        onClick={(e) => {
+          ActivateToggle(props.id);
+        }}
+      >
+        <text style={{ fontFamily: "Fira Sans" }}>{props.name}</text>{" "}
+      </Button>
+    );
+  };
   return (
     <div>
-      <HeaderBar />
+      <HeaderBar links={links} backgroundColor={"#FFFFFF"} />
       <ScreenBackground>
         <div>
-          <StyledFormGroup row id="categories-container"></StyledFormGroup>
+          <StyledFormGroup row id="categories-container">
+            {catValues.map((v) => (
+              <CategoryButtonsPC
+                id={v.id}
+                name={v.name}
+                color={v.color}
+                active={v.active}
+              />
+            ))}
+          </StyledFormGroup>
         </div>
         <Grid container spacing={4}>
           <Grid item xs={12} sm={8}>
             <ListContainerStyle style={{ borderColor: "red" }}>
               <MinimalPieChart
                 lineWidth={45}
-                paddingAngle={5}
-                data={catValues}
+                paddingAngle={0}
+                data={catValues.filter((v) => v.active)}
                 segmentsStyle={{ borderColor: "#F77B44", borderWidth: 100 }}
                 label={(labelRenderProps) => labelRenderProps.dataEntry.name}
                 labelPosition={120}
@@ -157,25 +154,31 @@ function GetMatchPage(props) {
 
             <QuestionsContainer>
               <ListContainerStyle>
-                <div>Do you want to have more ways to match?</div>
-                <div>
-                  Click here to fill out more details about your astrological
-                  information.
-                </div>
-                <div>
-                  <QuestionsButton>Go to Questions</QuestionsButton>
-                </div>
-              </ListContainerStyle>
-              <ListContainerStyle>
-                <div style={{ fontFamily: "Fira Sans" }}>
-                  Do you want to have more ways to match?
-                </div>
-                <div style={{ fontFamily: "Fira Sans" }}>
-                  Click here to fill out more details about your astrological
-                  information.
-                </div>
-                <div>
-                  <QuestionsButton>Go to Questions</QuestionsButton>
+                <text
+                  style={{
+                    fontFamily: "Fira Sans",
+                    fontSize: 20,
+                  }}
+                >
+                  Compatibility Threshold
+                </text>
+                <div style={{ marginTop: 20 }}>
+                  <text>
+                    This slider determines a base level of match you want in a
+                    partner. We only show you people who meet or surpass your
+                    threshold.
+                  </text>
+                  <Slider
+                    aria-label="CompatibilityThreshold"
+                    defaultValue={threshold}
+                    valueLabelDisplay="auto"
+                    color={AuntiesAlgosColorPalette.thresholdSliderColor}
+                    step={1}
+                    min={20}
+                    max={100}
+                    onChange={(e, v) => setThreshold(v)}
+                    style={{ marginTop: 20 }}
+                  />
                 </div>
               </ListContainerStyle>
             </QuestionsContainer>
@@ -195,6 +198,7 @@ const ListContainerStyle = styled.div`
   background-color: rgba(245, 234, 234);
   border-radius: 17px;
   padding: 25px;
+  text-align: center;
 `;
 const QuestionsContainer = styled.div`
   margin-top: 2rem;
@@ -220,7 +224,7 @@ const StyledFormGroup = styled(FormGroup)`
   margin-bottom: 3rem;
 `;
 const ScreenBackground = styled.div`
-  background-color: ${AuntiesAlgosColorPalette.background};
+  background-color: #fff;
   padding: 1vh 15vw;
 `;
 
