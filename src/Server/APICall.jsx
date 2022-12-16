@@ -25,12 +25,12 @@ function APICall(_url, _method, _data) {
   }
 
   axios(request).then((res) => {
-    console.log(res);
+    console.log(res.data);
     console.log(res.statusText);
     if (res.status != 200) {
       return false;
     }
-    return res;
+    return res.data;
   });
 }
 
