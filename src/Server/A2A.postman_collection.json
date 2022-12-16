@@ -16,7 +16,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \"session\":\n   {\n       \"email\": \"johnwick@continental.com\",\n       \"password\": \"password\"\n   }\n}\n",
+					"raw": "{\n    \"session\":\n    {\n        \"email\": \"korey.macgyver@okuneva.biz\",\n        \"password\": \"password\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -554,7 +554,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://a2a-api.onrender.com/api/v1/match_profiles/[match_profiles_id]",
+					"raw": "https://a2a-api.onrender.com/api/v1/match_profiles/10",
 					"protocol": "https",
 					"host": [
 						"a2a-api",
@@ -565,7 +565,7 @@
 						"api",
 						"v1",
 						"match_profiles",
-						"[match_profiles_id]"
+						"10"
 					]
 				}
 			},
@@ -666,7 +666,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://a2a-api.onrender.com/api/v1/favourite_match_profiles",
+					"raw": "https://a2a-api.onrender.com/api/v1/favourited_match_profiles",
 					"protocol": "https",
 					"host": [
 						"a2a-api",
@@ -676,7 +676,7 @@
 					"path": [
 						"api",
 						"v1",
-						"favourite_match_profiles"
+						"favourited_match_profiles"
 					]
 				}
 			},
