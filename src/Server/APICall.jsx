@@ -2,7 +2,7 @@ import axios from "axios";
 
 const DOMAIN = "https://a2a-api.onrender.com/api/v1";
 
-function APICall(_url, _method, _body = null) {
+function APICall(_url, _method, _data) {
   if (_url[_url.length - 1] === "/") {
     // URLs with '/' at the end require an identity at the end.
     // Must be provided.
@@ -12,16 +12,21 @@ function APICall(_url, _method, _body = null) {
   const request = {
     method: _method,
     url: DOMAIN + _url,
+    headers: { 
+      'Content-Type': 'application/json'
+    },
   };
 
-  if (_body) {
-    request.body = _body;
+  if (_data) {
+    request.data = _data;
   } else if (_method === "POST") {
-    // POST Request must have a body.
+    // POST Request must have data.
     return false;
   }
 
-  axios(request).then((res) => res);
+  axios(request).then((res) => {
+    return res;
+  });
 }
 
 export default APICall;
