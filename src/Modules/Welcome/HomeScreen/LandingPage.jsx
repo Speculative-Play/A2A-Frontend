@@ -11,15 +11,21 @@ import CenteredDiv from "../../../Components/CenteredDiv";
 import CenteredP from "../../../Components/CenteredP";
 import Heading from "../../../Components/Heading";
 import AuntiesAlgosColorPalette from "../../../Components/AuntiesAlgosColorPalette";
-import * as JSONanimation from "../../../assets/compile.json";
+import * as JSONanimation1 from "../../../assets/hobbies_Icon/hobbies_01.json";
+import * as JSONanimation2 from "../../../assets/hobbies_Icon/hobbies_02.json";
+import * as JSONanimation3 from "../../../assets/hobbies_Icon/hobbies_03.json";
 import Animation from "../../../Components/Animation";
+
+import A2AEndpoints from "../../../Server/endpoints";
+import APICall from "../../../Server/APICall";
+import { GetUserProfile, Login, Logout } from "../../../Server/Auth";
 
 //Component
 export default function LandingPage(props) {
   return (
     <ScreenContainer>
-      <Animation animationFile={JSONanimation} />
-
+      <Animation animationFile={JSONanimation2} />
+      {/* {Login("korey.macgyver@okuneva.biz", "password")} */}
       <CenteredDiv>
         <p>Pie Chart: Giving weighted preference to different blocks.</p>
         <p>Explore how to have different amount of personal agency.</p>
@@ -80,7 +86,7 @@ export default function LandingPage(props) {
 
       <CenteredP>
         Already have an account?{" "}
-        <Link to="/auth" style={{ textDecoration: "none", paddingBottom:50 }}>
+        <Link to="/auth" style={{ textDecoration: "none", paddingBottom: 50 }}>
           Log In
         </Link>{" "}
       </CenteredP>
