@@ -2,7 +2,8 @@ const SampleData = () => {
   const users = [
     {
       picture: "/images/sample_user_female.jpeg",
-      name: "Idika Laghari",
+      first_name: "Idika",
+      last_name: "Laghari",
       gender: "Female",
       birth_country: "India",
       city: "Philadelphia, PA",
@@ -13,7 +14,8 @@ const SampleData = () => {
     },
     {
       picture: "/images/sample_user_man.webp",
-      name: "John Wick",
+      first_name: "John", 
+      last_name: "Wick",
       gender: "Male",
       birth_country: "Belarus",
       city: "Long Island, NY",
