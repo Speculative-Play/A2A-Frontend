@@ -19,7 +19,7 @@ function GetMatchPage(props) {
     { linkName: "Matches", link: "/get-match", current: true },
     { linkName: "Logout", link: "/" },
   ];
-
+  const CLICKINCREMENT = 5;
   const [catValues, setCatValues] = useState([
     {
       id: "eth_rel",
@@ -75,18 +75,33 @@ function GetMatchPage(props) {
 
   function valueUpdateHandler(id, diff) {
     const newVal = [...catValues];
-    let next = 1;
+    const nextActive = findNextActive(id);
+
     newVal[id].value = catValues[id].value + diff;
-    // if ()
-    newVal[(id + 1) % 6].value = catValues[(id + 1) % 6].value - diff;
+    newVal[nextActive].value = catValues[nextActive].value - diff;
+    if (newVal[nextActive].value <= 0) {
+      newVal[nextActive].value = 0;
+      newVal[nextActive].active = false;
+    }
     setCatValues(newVal);
-    console.log(catValues);
+  }
+
+  function findNextActive(id) {
+    for (var i = 1; i < catValues.length - 1; i++) {
+      if (catValues[(id + i) % catValues.length].active) {
+        return id + i;
+      }
+    }
   }
 
   function ActivateToggle(id) {
     const newVal = [...catValues];
     for (var i = 0; i < catValues.length; i++) {
       if (newVal[i].id === id) {
+        if (!newVal[i].active && !newVal[i].value){
+          newVal[i].active = true;
+          
+        }
         newVal[i].active = !newVal[i].active;
         setCatValues(newVal);
         return true;
@@ -146,7 +161,7 @@ function GetMatchPage(props) {
                 radius={30}
                 onClick={(e, segmentIndex) => {
                   {
-                    valueUpdateHandler(segmentIndex, 5);
+                    valueUpdateHandler(segmentIndex, CLICKINCREMENT);
                   }
                 }}
               />
