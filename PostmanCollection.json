@@ -1,0 +1,731 @@
+{
+	"info": {
+		"_postman_id": "fe467229-6be6-429a-a23d-f89dba82342d",
+		"name": "A2A",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21841052"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"session\":\n    {\n        \"email\": \"korey.macgyver@okuneva.biz\",\n        \"password\": \"password\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/login",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/logout",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signup/Create Account",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"account\":\n   {\n       \"email\": \"johnwick@continental.com\",\n       \"password\": \"password\",\n       \"account_type\": \"user\"\n   }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/signup",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User Profile",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"account\":\n   {\n       \"email\": \"johnwick@continental.com\",\n       \"password\": \"password\",\n       \"account_type\": \"user\"\n   }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/signup-user",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"signup-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Parent signup search for child",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"email\": \"johnwick@continental.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/search-child",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"search-child"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Parent Profile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/signup-parent",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"signup-parent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete account",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"account\" :\n    {\n        \"email\" : \"johnwick@continental.com\",\n        \"password\" : \"password\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/delete-account",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"delete-account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/user_profile",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user_profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Profile",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/user_profile/edit",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user_profile",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Avatar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/user_profile/avatar",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user_profile",
+						"avatar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Matchmaking Categories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"session\":\n   {\n       \"email\": \"rodolfo@schaden.com\",\n       \"password\": \"password\"\n   }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/matchmaking_categories",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"matchmaking_categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Matchmaking Questions",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/questions",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Questions In a Category",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/questions/matchmaking_category/1",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"questions",
+						"matchmaking_category",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pie Chart Percentages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/category_percentages",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"category_percentages"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Pie Chart Percentages\t",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/category_percentages",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"category_percentages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Matches using Pie chart values",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/match",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"match"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User's Responses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/my_question_answers",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"my_question_answers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Match Profile's Responses\t",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/match_question_answers",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"match_question_answers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Parent's View of Profile\t",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/view-child",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"view-child"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change response visibility",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/toggle_question/[user_question_answer_id]",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"toggle_question",
+						"[user_question_answer_id]"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Specific Match Profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/match_profiles/10",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"match_profiles",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search for Matches based on Attributes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/search-matches",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"search-matches"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Starred Match Profiles by parent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/starred_match_profiles",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"starred_match_profiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save (Star) Match Profile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/starred_match_profiles",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"starred_match_profiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Starred Match Profile\t",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/starred_match_profiles/delete",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"starred_match_profiles",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Favourite Match Profiles by User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/favourited_match_profiles",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"favourited_match_profiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save (Favourite) Match Profile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/favourite_match_profiles",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"favourite_match_profiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Favourite Match Profile",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://a2a-api.onrender.com/api/v1/favourite_match_profiles/delete",
+					"protocol": "https",
+					"host": [
+						"a2a-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"favourite_match_profiles",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
